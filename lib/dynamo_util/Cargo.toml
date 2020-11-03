@@ -10,3 +10,4 @@ edition = "2018"
 chrono = { version = "0.4", features = ["serde"] }
 rusoto_core = { version="0.45", default_features=false, features=["rustls"] }
 rusoto_dynamodb = { version="0.45", default_features=false, features=["rustls"] }
+rusoto_util = { path="../rusoto_util" }

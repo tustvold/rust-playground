@@ -19,7 +19,7 @@ tokio = { version="0.2", features=["rt-threaded", "rt-util", "macros", "sync", "
 rocket = { version="0.5.0-dev", default_features=false }
 rocket_contrib = "0.5.0-dev"
 
-jwt = { path = "../../lib/jwt" }
-telemetry = { path = "../../lib/telemetry" }
-rocket_util = { path = "../../lib/rocket_util" }
+jwt = { path = "../../../lib/jwt" }
+telemetry = { path = "../../../lib/telemetry" }
+rocket_util = { path = "../../../lib/rocket_util" }
 calculator_client = { path = "../calculator/client", package = "client" }

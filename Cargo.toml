@@ -7,11 +7,13 @@ members = [
     "lib/telemetry",
     "lib/rocket_util",
     "lib/rusoto_util",
-    "lib/kinesis",
     "services/auth",
-    "services/gateway",
-    "services/calculator",
-    "services/calculator/client",
+    "services/calculator/gateway",
+    "services/calculator/calculator",
+    "services/calculator/calculator/client",
+    "services/crawler/api",
+    "services/crawler/crawler",
+    "services/crawler/shared",
 ]
 
 

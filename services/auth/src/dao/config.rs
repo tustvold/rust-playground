@@ -1,9 +1,6 @@
 use rusoto_dynamodb::DynamoDbClient;
 use serde::Deserialize;
 
-use rusoto_core::credential::StaticProvider;
-use rusoto_util::{parse_region, CustomChainProvider};
-
 #[derive(Debug, Deserialize, Clone)]
 #[serde(default)]
 pub struct DaoConfig {
@@ -28,18 +25,6 @@ impl Default for DaoConfig {
 
 impl DaoConfig {
     pub fn dynamo_client(&self) -> DynamoDbClient {
-        let region = parse_region(self.region.clone(), self.endpoint.clone());
-        let dispatcher =
-            rusoto_core::request::HttpClient::new().expect("failed to create request dispatcher");
-
-        if self.local {
-            return DynamoDbClient::new_with(
-                dispatcher,
-                StaticProvider::new_minimal("local".to_string(), "development".to_string()),
-                region,
-            );
-        }
-
-        DynamoDbClient::new_with(dispatcher, CustomChainProvider::new(), region)
+        dynamo_util::dynamo_client(self.region.clone(), self.endpoint.clone(), self.local)
     }
 }

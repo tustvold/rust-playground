@@ -1,7 +1,9 @@
 use std::collections::{HashMap, HashSet};
 
 use chrono::{DateTime, Utc};
-use rusoto_dynamodb::{AttributeValue, UpdateItemInput};
+use rusoto_core::credential::StaticProvider;
+use rusoto_dynamodb::{AttributeValue, DynamoDbClient, UpdateItemInput};
+use rusoto_util::{parse_region, CustomChainProvider};
 
 pub trait IntoAttribute {
     fn into_attribute(self) -> AttributeValue;
@@ -108,6 +110,22 @@ impl UpdateBuilder {
             ..Default::default()
         }
     }
+}
+
+pub fn dynamo_client(region: String, endpoint: Option<String>, local: bool) -> DynamoDbClient {
+    let region = parse_region(region, endpoint);
+    let dispatcher =
+        rusoto_core::request::HttpClient::new().expect("failed to create request dispatcher");
+
+    if local {
+        return DynamoDbClient::new_with(
+            dispatcher,
+            StaticProvider::new_minimal("local".to_string(), "development".to_string()),
+            region,
+        );
+    }
+
+    DynamoDbClient::new_with(dispatcher, CustomChainProvider::new(), region)
 }
 
 #[cfg(test)]

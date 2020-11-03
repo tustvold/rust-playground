@@ -1,0 +1,16 @@
+[package]
+name = "api"
+version = "0.1.0"
+authors = ["Raphael Taylor-Davies <r.taylordavies@googlemail.com>"]
+edition = "2018"
+
+[dependencies]
+actix-http = "^1.0.0"
+actix-rt = "^1.0.0"
+actix-web = "^2.0.0"
+log = "0.4.8"
+env_logger = "0.6"
+derive_more = "0.99.3"
+serde = "^1.0.0"
+
+shared = {path= "../shared" }

@@ -1,0 +1,28 @@
+version: '3'
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "ASLDKJASDGAAKE"
+      RABBITMQ_DEFAULT_USER: "rabbitmq"
+      RABBITMQ_DEFAULT_PASS: "rabbitmq"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    ports:
+      - 15672:15672
+      - 5672:5672
+  dynamodb:
+    image: amazon/dynamodb-local
+    ports:
+      - 8000:8000
+  dynamodb_init:
+    image: amazon/aws-cli
+    depends_on:
+      - dynamodb
+    environment:
+      AWS_REGION: us-east-1
+      AWS_ACCESS_KEY_ID: local
+      AWS_SECRET_ACCESS_KEY: development
+    entrypoint:
+      - /bin/bash
+      - -c
+      - "sleep 5 && aws dynamodb create-table --table-name crawler --endpoint http://dynamodb:8000  --attribute-definitions AttributeName=Url,AttributeType=S --key-schema AttributeName=Url,KeyType=HASH  --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 --region=us-east-1"
