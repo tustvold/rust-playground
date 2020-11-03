@@ -1,0 +1,48 @@
+[global.limits]
+forms = "64 kB"
+json = "1 MiB"
+msgpack = "2 MiB"
+
+[debug]
+port = 3030
+
+issuer.jku = "http://127.0.0.1:3030/.well-known/jwks.json"
+issuer.secret = '''
+-----BEGIN PRIVATE KEY-----
+MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC1SFXHFSUyRwRF
+GPgSmPceKhNJjJgYfACkoDacGVGsh/2N1aOKH58ivJVhZ5ZQhQ80R7ldhmFY8jSy
+VkIS8b+7XZfDTYEZWnmFenK6SaHAOIOeqWe5Hhpvzm0RIS3x1KOO/8wqIfLO+jAj
++FXhywNR4fMagO6XHQYHGCo6TvI9sL6ILRydm9sv4+bomCPzsHLdv4qnmZcN6ilK
+jwG5bZNob6b6vazqvlop7qCseE/YZ2UdcJtSj4iqX/GYGNpNsWy7WLBxMqInHmdz
+7ml8uNhW0rzyzfnZOJ2VCrYDVZW9D1ZkwkvYQojqJE4dsfyKk4MS9LI9P7Bei3I2
+DKnUSBf5AgMBAAECggEAY/1F8s0i+xxYqpQfIILmquiiQssdiUO8RxFnjaoZdoR7
+wiO4VJMkf1BtRJCSRE9gF4IIKCHax+iwUD1rrG9TRdFVyA+TyZwxswHbDg1W/mMt
+lfHymBSWmFzPo8cdRGn43QMSZZrcBnXQ38Y1+Ji1eBCcul2rPAZyMK+PeyHYU1Wf
+ipMTkCixixIGL9w3I/PwFqCrCNoelCQJr3cvjwyemmqWO/OgDQZXMf2PgNl29Lqk
+JNTyYLSMclIm8r7m+3pFmih5QTRuvcJFyR3a577RvepH6g+Cy2DKq5ZtDk8fwy3q
+HqrQSfL7PjzR4SiqVZxMRmeQNfxCUZx1AgFWMwLtUQKBgQDi5WZ+cXHG18xylkaj
+TtQWi99Hcph28FcWVfR1HgSbnfJEBRBA5ZocntF5VI5oV8oDzjWX8Kc8XfgaqAwD
+A1tDO3CSkb0Ka9uOpSRlR1Vm1nWih6NbYlcOvFKomPgmGZWtUs54kUy90tquzEK0
+M4FYzRGHl6EmCxQ07mmo2l7MEwKBgQDMiR7YKlI8iw6FrFskH6QLVxyBHwrC0MJB
+armpCFRyX3yPeSmrIVbcZ4dQ/y7/ZUuXTm37GVa2Xc8WC8xpMOOf2dVW4p7A7uVW
+5mON0IdTCyuvrSV8TwbLdzwOZtndwu+NY7qNssDXAieK/jBl5f7Nw1MoK+P/lzTn
+rv0rm3x1QwKBgB7vFa0xfEiWzUnmERVcvu+f/D36cqzskYL7DwwUnp40x33cjt26
+L+us/3QiQhQZu/IO4CGp7rL9QMEpnhGfGIcvCGcDNZnBILru6upf8lXF8V3KTkw8
+ORBKPp671EElhdGOk5W+gY7zu1rPgFyfFQhtVPF+i7rrEcMxqfgaZYg/AoGBAMM6
+oulcRBCr/pmTMY+ib/evF3McCS55CuJcF4kDfW+KOx/LW/2PnhRU8XFbkiWPL37m
+Cs5hmkYJ9q+pZVyGoM6koyECwNuRa/DtidsETxbyE6nk0GH+IJM3ZWitvYkSF4vS
+xG+aTr0rvkjKZbHtva/zn705X7BISORYQClOiZZ3AoGBAI8lRR5r3JEocdzlIUtV
+yz4z9HxjIpkw/WOplCENawQvaLjVUiUDKZZROFO2qm1jDIoMiyI99YJLvYw5MR8F
+/60DgeqhDsJSvqRNe/rWzOQqxsRQZTtrVSuptOm7hUM+4R67cvjZX/ottivBwwFE
+K06GxeW70RyXpHHI5G+fVUr9
+-----END PRIVATE KEY-----
+'''
+
+dao.seed = true
+dao.local = true
+dao.endpoint = "http://127.0.0.1:8000"
+
+credential.secret = "c8db97c42d676c0c6f23863a3b484874f4c1f665b3784ea9027a80660389306d"
+
+[release]
+# NB: Release secrets are mapped in as environment variables

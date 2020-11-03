@@ -1,0 +1,21 @@
+version: '3'
+services:
+  dynamodb:
+    image: amazon/dynamodb-local
+    ports:
+      - 8000:8000
+  dynamodb_init:
+    image: amazon/aws-cli
+    depends_on:
+      - dynamodb
+    environment:
+      AWS_REGION: us-east-1
+      AWS_ACCESS_KEY_ID: local
+      AWS_SECRET_ACCESS_KEY: development
+    volumes:
+      - ./scripts/dynamodb.json:/dynamodb.json
+    entrypoint:
+      - /bin/bash
+      - -c
+      - "sleep 5 && aws dynamodb create-table --endpoint http://dynamodb:8000  --region=us-east-1 --cli-input-json file:///dynamodb.json"
+

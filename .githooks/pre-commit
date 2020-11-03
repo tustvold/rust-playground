@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euf
+set -o pipefail
+
+echo "Running githook"
+
+# Format all files and only stage those that were previously staged
+files=$(comm -12 <(git diff --cached --name-only --line-prefix="$(git rev-parse --show-toplevel)/" | sort) <(cargo fmt -- -l | sort))
+for f in $files; do
+  echo "Formatted $f"
+  git add "$f"
+done

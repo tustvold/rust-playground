@@ -1,0 +1,16 @@
+[global.limits]
+forms = "64 kB"
+json = "1 MiB"
+msgpack = "2 MiB"
+
+[debug]
+port = 3031
+
+validator.jku = "http://127.0.0.1:3030/.well-known/jwks.json"
+validator.jwks = '{"keys":[{"kty":"RSA","kid":"1","n":"tUhVxxUlMkcERRj4Epj3HioTSYyYGHwApKA2nBlRrIf9jdWjih-fIryVYWeWUIUPNEe5XYZhWPI0slZCEvG_u12Xw02BGVp5hXpyukmhwDiDnqlnuR4ab85tESEt8dSjjv_MKiHyzvowI_hV4csDUeHzGoDulx0GBxgqOk7yPbC-iC0cnZvbL-Pm6Jgj87By3b-Kp5mXDeopSo8BuW2TaG-m-r2s6r5aKe6grHhP2GdlHXCbUo-Iql_xmBjaTbFsu1iwcTKiJx5nc-5pfLjYVtK88s352TidlQq2A1WVvQ9WZMJL2EKI6iROHbH8ipODEvSyPT-wXotyNgyp1EgX-Q","e":"AQAB","use":"sig"}]}'
+
+upstream.calculator = "http://127.0.0.1:3032"
+
+[release]
+
+# NB: Release secrets are mapped in as environment variables

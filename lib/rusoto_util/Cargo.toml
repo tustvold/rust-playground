@@ -1,0 +1,14 @@
+[package]
+name = "rusoto_util"
+version = "0.1.0"
+authors = ["Raphael Taylor-Davies"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+async-trait = "0.1"
+log = "0.4"
+rusoto_core = { version="0.45", default_features=false, features=["rustls"] }
+rusoto_sts = { version="0.45", default_features=false, features=["rustls"] }
+serde = "1.0"

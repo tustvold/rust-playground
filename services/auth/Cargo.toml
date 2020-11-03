@@ -1,0 +1,36 @@
+[package]
+name = "auth"
+version = "0.1.0"
+authors = ["Raphael Taylor-Davies"]
+edition = "2018"
+
+[dependencies]
+async-trait = "0.1"
+base64 = "0.12"
+chrono = "0.4"
+derive_more = "0.99"
+env_logger = "0.6"
+lazy_static = "1.4"
+log = "0.4"
+ring = { version="0.16", features=["std"] }
+rusoto_core = { version="0.45", default_features=false, features=["rustls"] }
+rusoto_dynamodb = { version="0.45", default_features=false, features=["rustls"] }
+serde = "1.0"
+
+strum = "0.18"
+strum_macros = "0.18"
+tokio = { version="0.2", features=["rt-threaded", "rt-util", "macros", "sync", "time"]}
+uuid = { version = "0.8", features = ["serde", "v4"] }
+rocket = { version="0.5.0-dev", default_features=false }
+rocket_contrib = "0.5.0-dev"
+
+jwt = { path = "../../lib/jwt" }
+dynamo_util = { path = "../../lib/dynamo_util" }
+credential = { path = "../../lib/credential" }
+telemetry = { path = "../../lib/telemetry" }
+rocket_util = { path = "../../lib/rocket_util" }
+rusoto_util = { path = "../../lib/rusoto_util" }
+
+[dev-dependencies]
+serde_json = "1.0"
+serde_urlencoded = "0.5"

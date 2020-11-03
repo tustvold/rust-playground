@@ -1,0 +1,17 @@
+[package]
+name = "jwt"
+version = "0.1.0"
+authors = ["Raphael Taylor-Davies"]
+edition = "2018"
+
+[dependencies]
+base64 = "0.12"
+chrono = { version = "0.4", features = ["serde"] }
+derive_more = "0.99"
+pem = "0.7"
+ring = { version="0.16", features=["std"] }
+serde = {version="1.0", features=["derive"]}
+serde_json = "1.0"
+strum = "0.18"
+strum_macros = "0.18"
+itertools = "0.9"
