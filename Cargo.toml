@@ -4,16 +4,19 @@ members = [
     "lib/credential",
     "lib/dynamo_util",
     "lib/jwt",
-    "lib/telemetry",
+    "lib/kinesis",
     "lib/rocket_util",
     "lib/rusoto_util",
+    "lib/stream",
+    "lib/telemetry",
     "services/auth",
-    "services/calculator/gateway",
     "services/calculator/calculator",
     "services/calculator/calculator/client",
+    "services/calculator/gateway",
     "services/crawler/api",
     "services/crawler/crawler",
     "services/crawler/shared",
+    "services/kinesis/producer",
 ]
 
 
@@ -21,3 +24,6 @@ members = [
 # TODO: Remove once version 0.5 released
 rocket = { git = "https://github.com/SergioBenitez/Rocket", branch = "master" }
 rocket_contrib = { git = "https://github.com/SergioBenitez/Rocket", branch = "master" }
+# TODO: Remove once version 0.7 released - https://github.com/danburkert/prost/pull/341
+prost = { git = "https://github.com/danburkert/prost", rev="a1cccbcee343e2c444e1cd2738c7fba2599fc391" }
+prost-build = { git = "https://github.com/danburkert/prost", rev="a1cccbcee343e2c444e1cd2738c7fba2599fc391"}

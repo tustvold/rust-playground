@@ -13,3 +13,7 @@ A pair of authenticated Rocket services that can evaluate arbitrary mathematical
 ## [Crawler](services/crawler)
 
 A pair of services providing an asynchronous crawler using RabbitMQ as a queue and DynamoDB for persistence. Uses Actix-web and publishes metrics using StatsD.
+
+## [Kinesis Producer](services/kinesis/producer)
+
+An HTTP -> Kinesis service with support for [record aggregation](https://github.com/awslabs/kinesis-aggregation) and batching calls to the PutRecords API.

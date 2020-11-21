@@ -1,0 +1,21 @@
+version: '3'
+services:
+  kinesis:
+    build:
+      context: ../../docker/kinesalite
+    ports:
+      - 4567:4567
+    command: --shardLimit 20
+  kinesis_init:
+    image: amazon/aws-cli
+    depends_on:
+      - kinesis
+    environment:
+      AWS_REGION: us-east-1
+      AWS_ACCESS_KEY_ID: local
+      AWS_SECRET_ACCESS_KEY: development
+    entrypoint:
+      - /bin/bash
+      - -c
+      - "sleep 5 && aws kinesis create-stream --endpoint http://kinesis:4567  --region=us-east-1 --stream-name kinesis --shard-count 12"
+

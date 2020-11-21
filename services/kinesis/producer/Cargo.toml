@@ -1,0 +1,26 @@
+[package]
+name = "producer"
+version = "0.1.0"
+authors = ["Raphael Taylor-Davies"]
+edition = "2018"
+
+[dependencies]
+bytes = { version="0.5", features=["serde"] }
+lazy_static = "1.4"
+serde = "1.0"
+serde_json = "1.0"
+strum = "0.18"
+strum_macros = "0.18"
+tokio = { version="0.2", features=["rt-threaded", "rt-util", "macros", "sync", "time"]}
+tracing = "0.1"
+tracing-subscriber = "0.2"
+rocket = { version="0.5.0-dev", default_features=false }
+rocket_contrib = "0.5.0-dev"
+rusoto_core = { version="0.45", default_features=false, features=["rustls"] }
+rusoto_sts = { version="0.45", default_features=false, features=["rustls"] }
+rusoto_kinesis = { version="0.45", default_features=false, features=["rustls"] }
+
+jwt = { path = "../../../lib/jwt" }
+telemetry = { path = "../../../lib/telemetry" }
+rocket_util = { path = "../../../lib/rocket_util" }
+kinesis = { path = "../../../lib/kinesis" }
